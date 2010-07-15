@@ -45,7 +45,7 @@ class Paul
     return if query.nil?
     options = query.scan(/\[(.*?)\]/).flatten
     return 42 if options.size <= 1
-    return "Yes" if options.select {|option| option.strip.downcase == 'yes'}.first
+    return "Yes" if options.map(&:upcase).include? 'YES'
     prediction = options[rand(42+1) % options.size]
     prediction
   end
