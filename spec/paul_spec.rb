@@ -9,8 +9,8 @@ describe Paul do
     end
 
     it "should choose if two choices are given" do
-      chooseion = @paul.send(:choose, "Will i win the lottery? [No Way] [Get Rich or Die Trying]")
-      ['No Way', 'Get Rich or Die Trying'].should include(chooseion)
+      prediction = @paul.send(:choose, "Will i win the lottery? [No Way] [Get Rich or Die Trying]")
+      ['No Way', 'Get Rich or Die Trying'].should include(prediction)
     end
 
     it "should return 42 if no options are given" do
@@ -26,8 +26,8 @@ describe Paul do
     end
 
     it "should choose from multiple options" do
-      chooseion = @paul.send(:choose, 'What will i get for Christmas? [XBox] [iPad] [Wii] [PS3]')
-      ['XBox','iPad','Wii','PS3'].should include(chooseion)
+      prediction = @paul.send(:choose, 'What will i get for Christmas? [XBox] [iPad] [Wii] [PS3]')
+      ['XBox','iPad','Wii','PS3'].should include(prediction)
     end
 
     it "should return nil if parsed question is nil" do
