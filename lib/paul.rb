@@ -35,12 +35,6 @@ class Paul
     @client.update("@#{user}: #{prediction}") if prediction
   end
 
-  protected
-
-  def query(tweet)
-    tweet.match(/@#{@name}:?\s*(.*)/)[1]
-  end
-
   def choose(query)
     return if query.nil?
     options = query.scan(/\[(.*?)\]/).flatten
@@ -48,6 +42,12 @@ class Paul
     return "Yes" if options.map(&:upcase).include? 'YES'
     prediction = options[rand(42+1) % options.size]
     prediction
+  end
+
+  protected
+
+  def query(tweet)
+    tweet.match(/@#{@name}:?\s*(.*)/)[1]
   end
 
 end
